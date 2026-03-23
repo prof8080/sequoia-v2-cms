@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Route, Switch, useLocation } from 'wouter';
+import React from 'react';
+import { Route, Switch } from 'wouter';
 import Home from './pages/Home';
-import Admin from './pages/Admin';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import About from './pages/About';
@@ -11,7 +10,6 @@ function App() {
     <div className="min-h-screen bg-background">
       <Switch>
         <Route path="/" component={Home} />
-        <Route path="/admin" component={Admin} />
         <Route path="/privacy" component={Privacy} />
         <Route path="/terms" component={Terms} />
         <Route path="/about" component={About} />

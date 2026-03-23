@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
-import { ArrowRight, Newspaper, Calendar, User } from 'lucide-react';
+import { Newspaper, Calendar, User } from 'lucide-react';
 
 export default function Home() {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/articles').then(res => setArticles(res.data)).catch(console.error);
+    // جلب البيانات من ملف JSON الثابت في مجلد public
+    axios.get('/data/articles.json')
+      .then(res => setArticles(res.data))
+      .catch(err => {
+        console.error("Error fetching static data:", err);
+        setArticles([]);
+      });
   }, []);
 
   return (
