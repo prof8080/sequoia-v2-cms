@@ -3,7 +3,8 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const dbPath = join(__dirname, '..', 'database.sqlite');
+const isRender = process.env.RENDER === 'true';
+const dbPath = isRender ? join('/var/data', 'database.sqlite') : join(__dirname, '..', 'database.sqlite');
 
 const db = new Database(dbPath);
 
